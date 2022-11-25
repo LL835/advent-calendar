@@ -29,7 +29,7 @@ body {
 .bg-3 {
     background-color: var(--clr-3);
 }
-button:hover {
+button:not(:disabled):hover {
     background-color: var(--clr-4);
 }
 header {
@@ -75,10 +75,16 @@ header {
     transform: scaleX(0.05);
     color: transparent;
 }
+.media {
+    visibility: hidden;
+}
 .media img, .media video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.overlay.revealed + .media {
+    visibility: visible;
 }
 /* styles the input tile */
 form {
