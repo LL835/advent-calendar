@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+:root {
+    --clr-1: #21BF73;
+    --clr-2: #A7D82E;
+    --clr-3: #A7CD78;
+    --clr-4: #DA1212;
+    --clr-5: #FFFFFF;
+    --aspect-ratio: 16 / 9;
+    --border-radius: 5px;
+    --box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 3px;
+}
+/* general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+body {
+    background-color: #F3F5D5;
+    padding: 6px;
+}
+.bg-1 {
+    background-color: var(--clr-1);
+}
+.bg-2 {
+    background-color: var(--clr-2);
+}
+.bg-3 {
+    background-color: var(--clr-3);
+}
+button:hover {
+    background-color: var(--clr-4);
+}
+header {
+    color: var(--clr-4);
+    font-size: 2.5rem;
+    text-align: center;
+}
+/* styles the main container i.e. calendar  */
+#calendar-grid {
+    display: grid;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 6px;
+}
+#calendar-grid > * {
+    border-radius: var(--border-radius);}
+/* styles the day tiles */
+.day {
+    position: relative;
+    aspect-ratio: var(--aspect-ratio);
+    width: 100%;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+.overlay, .media {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.overlay {
+    cursor: pointer;
+    color: var(--clr-5);
+    font-size: 3rem;
+    z-index: 99;
+    border: none;
+}
+.media img, .media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* styles the input tile */
+form {
+    display: flex;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+    gap: 6px;
+    box-shadow: var(--box-shadow);
+}
+input[type="date"]{
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 4px 8px;
+}
+form, input[type="date"]{
+    font-size: 1.2rem;
+}
+/* styles the reset button tile */
+.reset-btn {
+    aspect-ratio: var(--aspect-ratio);
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+}
