@@ -47,9 +47,24 @@ function restoreLastSession(){
     })
 }
 
+function checkDate(today, selectedDay){
+    today = new Date(today);
+    dayClicked = new Date(selectedDay.parentElement.id);
+
+    if (today > dayClicked || today.getTime() === dayClicked.getTime()){
+        revealTile(selectedDay);
+    }
+
+    else if (today < dayClicked){
+        alert("It's too early to open this one!")
+    }
+    else alert("Please select a date first!")
+
+}
+
 document.addEventListener("DOMContentLoaded", restoreLastSession);
 
 overlayButtons.forEach(button => button.addEventListener("click", (event) => {
-    revealTile(event.target);
+    checkDate(input.value, event.target);
 }))
 resetButton.addEventListener("click", resetAllTiles);
