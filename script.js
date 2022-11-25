@@ -12,6 +12,19 @@ function revealTile(tile){
     if (selectedTile.revealed === false) selectedTile.revealed = true;
     else selectedTile.revealed = false;
     updateLocalStorage();
+
+    handleVideo(tile);
+}
+
+function handleVideo(tile){
+    mediaContainer = tile.nextElementSibling;
+    mediaType = mediaContainer.dataset.media;
+
+    if (mediaType === "video" ){
+        const video = mediaContainer.querySelector("video");
+        if (tile.classList.contains("revealed")) video.play();
+        else video.pause();
+    } 
 }
 
 function resetAllTiles(){
