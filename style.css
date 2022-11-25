@@ -19,6 +19,8 @@
 body {
     background-color: #F3F5D5;
     padding: 6px;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 .bg-1 {
     background-color: var(--clr-1);
@@ -29,7 +31,7 @@ body {
 .bg-3 {
     background-color: var(--clr-3);
 }
-button:not(:disabled):hover {
+button:hover, button:focus {
     background-color: var(--clr-4);
 }
 header {
@@ -115,4 +117,44 @@ form, input[type="date"]{
     border: none;
     cursor: pointer;
     box-shadow: var(--box-shadow);
+}
+/* styles the modal (created with js when there's an error) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 999;
+    display: grid;
+    place-items: center;
+}
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    font-size: 2rem;
+    background-color: var(--clr-5);
+    padding: 6px;
+    min-width: 500px;
+    min-height: 300px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.modal-content-text {
+    color: var(--clr-4);
+}
+.modal-content-button {
+    border: none;
+    background-color: var(--clr-1);
+    color: var(--clr-5);
+    padding: 4px 16px;
+    width: 100px;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-size: 1.5rem;
 }

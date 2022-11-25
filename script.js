@@ -54,12 +54,46 @@ function checkDate(today, selectedDay){
     if (today > dayClicked || today.getTime() === dayClicked.getTime()){
         revealTile(selectedDay);
     }
-
     else if (today < dayClicked){
-        alert("It's too early to open this one!")
+        createModal("It's too early to open this one!")
     }
-    else alert("Please select a date first!")
+    else createModal("Please select a date first!")
+}
 
+function createModal(message){
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+
+    const modalContent = document.createElement("div");
+    modalContent.classList.add("modal-content");
+
+    const modalContentText = document.createElement("p");
+    modalContentText.classList.add("modal-content-text")
+    modalContentText.textContent = message;
+    modalContent.appendChild(modalContentText);
+
+    const modalContentButton = document.createElement("button");
+    modalContentButton.classList.add("modal-content-button");
+    modalContentButton.textContent = "Ok!";
+    modalContentButton.addEventListener("click", closeModal);
+    modalContent.appendChild(modalContentButton);
+
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+
+
+    input.tabIndex = "-1";
+    overlayButtons.forEach(button => button.tabIndex = "-1");
+    resetButton.tabIndex = "-1";
+}
+
+function closeModal(){
+    const modal = document.querySelector(".modal");
+    modal.remove();
+
+    input.tabIndex = "0";
+    overlayButtons.forEach(button => button.tabIndex = "0");
+    resetButton.tabIndex = "0";
 }
 
 document.addEventListener("DOMContentLoaded", restoreLastSession);
