@@ -31,9 +31,14 @@ function resetAllTiles(){
     overlayButtons.forEach(button => {
         button.classList.remove("revealed");
     })
-
     userHistory.forEach(item => item.revealed = false);
     updateLocalStorage();
+
+    const videos = document.querySelectorAll("video");
+    videos.forEach(video => {
+        video.load();
+        video.currentTime = 0;
+    })
 }
 
 function newLocalStorage(){
