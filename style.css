@@ -49,7 +49,8 @@ header {
     gap: 6px;
 }
 #calendar-grid > * {
-    border-radius: var(--border-radius);}
+    border-radius: var(--border-radius);
+}
 /* styles the day tiles */
 .day {
     position: relative;
@@ -60,10 +61,16 @@ header {
 }
 .overlay, .media {
     position: absolute;
-    width: 100%;
+}
+.media {
+    right: 0;
+    bottom: 0;
+    width: 95%;
     height: 100%;
 }
 .overlay {
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     color: var(--clr-5);
     font-size: 3rem;
